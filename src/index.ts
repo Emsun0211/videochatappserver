@@ -10,7 +10,14 @@ import { roomHandler } from "./room";
 const PORT = 8080;
 const app = express();
 app.use(cors);
+app.use(express.json());
 const server = http.createServer(app);
+
+app.get("/", (req, res) => {
+	res.status(200).json({
+		message: "welcome to my video chat app",
+	});
+});
 
 const io = new Server(server, {
 	cors: {
