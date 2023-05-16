@@ -13,12 +13,6 @@ app.use(cors);
 app.use(express.json());
 const server = http.createServer(app);
 
-app.get("/", (req, res) => {
-	res.status(200).json({
-		message: "welcome to my video chat app",
-	});
-});
-
 const io = new Server(server, {
 	cors: {
 		origin: "*",
