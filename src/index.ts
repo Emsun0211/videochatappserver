@@ -9,13 +9,17 @@ import { roomHandler } from "./room";
 
 const PORT = 8080;
 const app = express();
-app.use(cors);
+app.use(
+	cors({
+		origin: "*",
+	})
+);
 app.use(express.json());
 const server = http.createServer(app);
 
 const io = new Server(server, {
 	cors: {
-		origin: "https://videochatclient.vercel.app/",
+		origin: "*",
 		methods: ["GET", "POST"],
 	},
 });
